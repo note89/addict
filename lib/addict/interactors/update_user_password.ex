@@ -7,9 +7,7 @@ defmodule Addict.Interactors.UpdateUserPassword do
   """
 
   def call(user, password, repo \\ Addict.Configs.repo) do
-    user
-    |> Ecto.Changeset.change(encrypted_password: GenerateEncryptedPassword.call(password))
-    |> repo.update
+    App.UserModel.update_password(user.id, password)
   end
 
 end
