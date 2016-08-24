@@ -125,7 +125,7 @@ defmodule Addict.AddictController do
     conn
     |> put_status(status)
     |> invoke_hook(custom_fn, :ok, user)
-    |> json(Addict.Presenter.strip_all(user))
+    |> json(%{success: "Yes"})
   end
 
   defp invoke_hook(conn, custom_fn, status, params) do
