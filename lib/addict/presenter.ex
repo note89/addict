@@ -9,7 +9,8 @@ Normalized structure presentation
   Returns the stripped structure
   """
   def strip_all(model, schema \\ Addict.Configs.user_schema) do
-    model |> drop_keys(schema)
+      model 
+    # model |> drop_keys(schema)
   end
 
   defp drop_keys(model, schema) do
