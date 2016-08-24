@@ -9,13 +9,14 @@ Normalized structure presentation
   Returns the stripped structure
   """
   def strip_all(model, schema \\ Addict.Configs.user_schema) do
-      model 
+      model
     # model |> drop_keys(schema)
   end
 
   defp drop_keys(model, schema) do
-    associations = schema.__schema__(:associations)
-    Map.drop model, associations ++ [:__struct__, :__meta__, :encrypted_password]
+      model
+    # associations = schema.__schema__(:associations)
+    # Map.drop model, associations ++ [:__struct__, :__meta__, :encrypted_password]
   end
 
 end
