@@ -15,7 +15,7 @@ defmodule Addict.Mailers.MailSender do
 
   def send_reset_token(email, path, host \\ Addict.Configs.host) do
     host = host || "http://localhost:4000"
-    template = Addict.Configs.email_reset_password_template || ahead_email(host, path)
+    template = Addict.Configs.email_reset_password_template || ahead_email(host)
     subject = Addict.Configs.email_reset_password_subject || "Reset Password"
     params = %{"email" => email, "path" => path} |> convert_to_list
     html_body = EEx.eval_string(template, params)
@@ -23,12 +23,12 @@ defmodule Addict.Mailers.MailSender do
     Addict.Mailers.send_email(email, from_email, subject, html_body)
   end
 
-  def ahead_email(host, path) do
+  def ahead_email(host) do
       """
         <p> You have requested a password reset. </p>
         <p> Follow the link below and set a new password </p>
         <p> Click <a href='#{host}<%= path %>'>here</a> to proceed!</p>
-        <p> <a href="https://xkcd.com/936/" tabindex="-1" target="_blank" style="font-style: italic;">How to pick a password</a></p>
+        <p> <a href="https://xkcd.com/936/" target="_blank" style="font-style: italic;">How to pick a password</a></p>
         """
   end
 
