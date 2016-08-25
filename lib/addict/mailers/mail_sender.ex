@@ -27,7 +27,7 @@ defmodule Addict.Mailers.MailSender do
       """
         <p> You have requested a password reset. </p>
         <p> Click <a href='#{host}<%= path %>'>here</a> to proceed!</p>
-        <p style="font-size: 8px"> tip: <a href="https://xkcd.com/936/" target="_blank" style="font-style: italic;">How to pick a password</a></p>
+        <p style="font-size: 10px"> tip: <a href="https://xkcd.com/936/" target="_blank" style="font-style: italic;">How to pick a password</a></p>
         """
   end
 
