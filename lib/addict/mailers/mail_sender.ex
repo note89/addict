@@ -26,9 +26,8 @@ defmodule Addict.Mailers.MailSender do
   def ahead_email(host) do
       """
         <p> You have requested a password reset. </p>
-        <p> Follow the link below and set a new password </p>
         <p> Click <a href='#{host}<%= path %>'>here</a> to proceed!</p>
-        <p> <a href="https://xkcd.com/936/" target="_blank" style="font-style: italic;">How to pick a password</a></p>
+        <p style="font-size: 8px"> tip: <a href="https://xkcd.com/936/" target="_blank" style="font-style: italic;">How to pick a password</a></p>
         """
   end
 
